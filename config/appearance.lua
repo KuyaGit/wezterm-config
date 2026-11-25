@@ -5,7 +5,7 @@ M.opacity = 0.80
 
 function M.apply(config)
   -- Theme
-  config.color_scheme = 'nord'
+  config.color_scheme = 'Catppuccin Mocha'
 
   -- Translucent, blurred background (wallpaper shows through)
   config.window_background_opacity = M.opacity
@@ -35,22 +35,23 @@ function M.apply(config)
   config.colors = {
     tab_bar = {
       background = 'rgba(0,0,0,0)',
-      active_tab = { bg_color = '#88c0d0', fg_color = '#2e3440' },
-      inactive_tab = { bg_color = '#3b4252', fg_color = '#d8dee9' },
-      inactive_tab_hover = { bg_color = '#434c5e', fg_color = '#eceff4' },
-      new_tab = { bg_color = 'rgba(0,0,0,0)', fg_color = '#4c566a' },
-      new_tab_hover = { bg_color = '#434c5e', fg_color = '#eceff4' },
+      active_tab = { bg_color = '#cba6f7', fg_color = '#1e1e2e' }, -- mauve on base
+      inactive_tab = { bg_color = '#313244', fg_color = '#bac2de' }, -- surface0 / subtext1
+      inactive_tab_hover = { bg_color = '#45475a', fg_color = '#cdd6f4' }, -- surface1 / text
+      new_tab = { bg_color = 'rgba(0,0,0,0)', fg_color = '#6c7086' }, -- overlay0
+      new_tab_hover = { bg_color = '#45475a', fg_color = '#cdd6f4' },
     },
   }
 
-  -- Dim unfocused panes slightly
-  config.inactive_pane_hsb = { saturation = 0.9, brightness = 0.7 }
+  -- Dim unfocused panes so the active one stands out
+  config.inactive_pane_hsb = { saturation = 0.7, brightness = 0.45 }
 
   -- Cursor
-  config.default_cursor_style = 'BlinkingBar'
+  config.default_cursor_style = 'BlinkingBlock'
   config.cursor_blink_rate = 600
-  config.cursor_blink_ease_in = 'Constant'
-  config.cursor_blink_ease_out = 'Constant'
+  -- Smooth fade in/out instead of a hard on/off blink
+  config.cursor_blink_ease_in = 'EaseIn'
+  config.cursor_blink_ease_out = 'EaseOut'
 end
 
 return M
